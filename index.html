@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iqra University — Student Login &amp; Registration</title>
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<header class="navbar navbar-expand bg-white border-bottom py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center mb-0" href="#login">
+      <img src="images/iqra-logo.png" alt="Iqra University" width="141" height="34">
+    </a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <a href="#notes" class="small fw-semibold text-decoration-none" id="notesLink">Design notes</a>
+      <button type="button" class="btn btn-outline-secondary btn-sm rounded-circle icon-btn" data-bs-toggle="modal" data-bs-target="#helpModal" aria-label="Open help and documentation">?</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= LOGIN / REGISTER SHELL ================= -->
+<main id="authShell" class="py-4 py-lg-5">
+  <div class="container">
+    <div class="row g-0 shadow-sm rounded-4 overflow-hidden mx-auto auth-card bg-white">
+
+      <!-- Decorative panel -->
+      <div class="col-lg-6 d-none d-lg-flex flex-column justify-content-between p-5 decor-panel" aria-hidden="true">
+        <div>
+          <div class="mb-4">
+            <img src="images/iqra-logo.png" alt="Iqra University" width="199" height="48">
+          </div>
+          <span class="badge rounded-pill badge-eyebrow">Online Course Platform</span>
+          <h2 class="fw-semibold mt-3">Your learning journey starts here.</h2>
+          <p class="text-muted mt-2" style="max-width:34ch;">One simple dashboard to enroll in courses, track your progress and stay in touch with your instructors.</p>
+
+          <div class="mini-stack mt-4">
+            <div class="mini-card mc-1">
+              <div class="mini-ic" style="background:#E3F0ED;color:#125C53;">
+                <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M4 5.5A2 2 0 0 1 6 3.5h9a2 2 0 0 1 2 2V21l-4-2-4 2V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div class="fw-semibold small">Computer Science</div>
+                <div class="text-muted" style="font-size:.75rem;">Core module · 8 lessons</div>
+              </div>
+            </div>
+            <div class="mini-card mc-2">
+              <div class="mini-ic" style="background:#FBEADD;color:#D97B3F;">
+                <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><rect x="7" y="7" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <div class="fw-semibold small">Artificial Intelligence</div>
+                <div class="text-muted" style="font-size:.75rem;">New · Project-based</div>
+              </div>
+            </div>
+            <div class="mini-card mc-3">
+              <div class="mini-ic" style="background:#E7F6EC;color:#1F8A4C;">
+                <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.6"/><path d="M19.4 13.5a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V19.5a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3.5a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3.5a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H20.5a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" stroke="currentColor" stroke-width="1.3"/></svg>
+              </div>
+              <div>
+                <div class="fw-semibold small">Software Engineering</div>
+                <div class="text-muted" style="font-size:.75rem;">Capstone track</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="list-unstyled d-flex flex-column gap-3 small text-muted mb-0 mt-4">
+          <li class="d-flex align-items-center gap-2"><svg viewBox="0 0 24 24" fill="none" width="16" height="16" style="color:#1F8A4C;flex:none;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Enroll in courses in just a few clicks</li>
+          <li class="d-flex align-items-center gap-2"><svg viewBox="0 0 24 24" fill="none" width="16" height="16" style="color:#1F8A4C;flex:none;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Track assignments and deadlines in one place</li>
+          <li class="d-flex align-items-center gap-2"><svg viewBox="0 0 24 24" fill="none" width="16" height="16" style="color:#1F8A4C;flex:none;"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Stay connected with instructors and classmates</li>
+        </ul>
+      </div>
+
+      <!-- Form side -->
+      <div class="col-lg-6 p-4 p-lg-5">
+
+        <!-- ============ LOGIN VIEW ============ -->
+        <div class="auth-view active" id="view-login">
+
+          <div id="loginFormWrap">
+            <h1 class="h3 fw-semibold mb-1">Welcome back</h1>
+            <p class="text-muted mb-4">Sign in to continue your courses.</p>
+
+            <div class="alert alert-danger d-none" id="loginBanner" role="alert"></div>
+
+            <form id="loginForm" novalidate>
+              <div class="mb-3">
+                <label for="login-identifier" class="form-label fw-semibold">Username or email</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-11Z" stroke="currentColor" stroke-width="1.5"/><path d="M5 7l6.3 5a2.7 2.7 0 0 0 3.4 0L21 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <input type="text" class="form-control" id="login-identifier" placeholder="ahmed_testing or you@example.com" autocomplete="username">
+                  <div class="invalid-feedback d-none" id="login-identifier-error"></div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="login-password" class="form-label fw-semibold">Password</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V7.8a4 4 0 1 1 8 0v2.7" stroke="currentColor" stroke-width="1.5"/></svg></span>
+                  <input type="password" class="form-control" id="login-password" placeholder="Enter your password" autocomplete="current-password">
+                  <button type="button" class="btn btn-outline-secondary" data-toggle-for="login-password" aria-label="Show password"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg></button>
+                  <div class="invalid-feedback d-none" id="login-password-error"></div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="login-remember">
+                  <label class="form-check-label small" for="login-remember">Remember me</label>
+                </div>
+                <a href="#" class="small fw-semibold text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotModal">Forgot password?</a>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100" id="loginSubmit">
+                <span class="btn-label">Log in</span>
+              </button>
+            </form>
+
+            <p class="text-center small mt-3 mb-1">New to Iqra University? <a href="#register" class="fw-semibold text-decoration-none">Create an account</a></p>
+            <p class="text-center demo-note">Try the demo account — <strong>ahmed_testing</strong> / <strong>Demo@1234</strong></p>
+          </div>
+
+          <!-- Authenticated / success state -->
+          <div class="text-center d-none" id="welcomePanel">
+            <div class="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width:56px;height:56px;background:#E7F6EC;color:#1F8A4C;">
+              <svg viewBox="0 0 24 24" fill="none" width="26" height="26"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h1 class="h4 fw-semibold" id="welcomeName">Welcome back!</h1>
+            <p class="text-muted">You're signed in. Here's what's on your plate:</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2 my-3" id="welcomeCourses"></div>
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="logoutBtn">Log out</button>
+          </div>
+        </div>
+
+        <!-- ============ REGISTER VIEW ============ -->
+        <div class="auth-view" id="view-register">
+          <h1 class="h3 fw-semibold mb-1">Create your account</h1>
+          <p class="text-muted mb-4">Join Iqra University's course platform and start learning today.</p>
+
+          <div class="alert alert-success d-none" id="registerSuccessBanner" role="status">
+            <strong>Account created</strong>
+            <div id="registerSuccessText">You're all set.</div>
+            <button type="button" class="btn btn-primary btn-sm mt-2" id="continueToLogin">Continue to login →</button>
+          </div>
+
+          <form id="registerForm" novalidate>
+            <div class="mb-3">
+              <label for="reg-fullname" class="form-label fw-semibold">Full name</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8.3" r="3.3" stroke="currentColor" stroke-width="1.5"/><path d="M4.8 19.5a7.3 7.3 0 0 1 14.4 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+                <input type="text" class="form-control" id="reg-fullname" placeholder="Muhammad Ahmed" autocomplete="name">
+                <div class="invalid-feedback d-none" id="reg-fullname-error"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="reg-email" class="form-label fw-semibold">Email address</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-11Z" stroke="currentColor" stroke-width="1.5"/><path d="M5 7l6.3 5a2.7 2.7 0 0 0 3.4 0L21 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <input type="email" class="form-control" id="reg-email" placeholder="you@example.com" autocomplete="email">
+                <div class="invalid-feedback d-none" id="reg-email-error"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="reg-username" class="form-label fw-semibold">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><svg viewBox="0 0 24 24" fill="none"><path d="M4 17.5c0-3 3.5-4.2 8-4.2s8 1.2 8 4.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.5"/></svg></span>
+                <input type="text" class="form-control" id="reg-username" placeholder="4-20 characters" autocomplete="username">
+                <div class="invalid-feedback d-none" id="reg-username-error"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="reg-password" class="form-label fw-semibold">Password</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V7.8a4 4 0 1 1 8 0v2.7" stroke="currentColor" stroke-width="1.5"/></svg></span>
+                <input type="password" class="form-control" id="reg-password" placeholder="Create a password" autocomplete="new-password">
+                <button type="button" class="btn btn-outline-secondary" data-toggle-for="reg-password" aria-label="Show password"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg></button>
+                <div class="invalid-feedback d-none" id="reg-password-error"></div>
+              </div>
+              <div class="progress mt-2" style="height:6px;">
+                <div class="progress-bar" id="pwStrengthBar" style="width:0%"></div>
+              </div>
+              <small class="text-muted d-block mt-1" id="strengthLabel">Password strength</small>
+              <ul class="list-unstyled row row-cols-2 g-1 small mt-1 mb-0" id="pwRules">
+                <li class="col d-flex align-items-center" data-rule="len"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>8+ characters</li>
+                <li class="col d-flex align-items-center" data-rule="case"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Upper &amp; lowercase</li>
+                <li class="col d-flex align-items-center" data-rule="num"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>At least 1 number</li>
+              </ul>
+            </div>
+
+            <div class="mb-3">
+              <label for="reg-confirm" class="form-label fw-semibold">Confirm password</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V7.8a4 4 0 1 1 8 0v2.7" stroke="currentColor" stroke-width="1.5"/></svg></span>
+                <input type="password" class="form-control" id="reg-confirm" placeholder="Re-enter your password" autocomplete="new-password">
+                <button type="button" class="btn btn-outline-secondary" data-toggle-for="reg-confirm" aria-label="Show password"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg></button>
+                <div class="invalid-feedback d-none" id="reg-confirm-error"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold d-block">Choose your course(s)</label>
+              <div class="d-flex flex-wrap gap-2" id="courseChips"></div>
+              <div class="invalid-feedback d-none" id="reg-course-error"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" id="registerSubmit">
+              <span class="btn-label">Create account</span>
+            </button>
+          </form>
+
+          <p class="text-center small mt-3 mb-0">Already have an account? <a href="#login" class="fw-semibold text-decoration-none">Log in</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ================= DESIGN NOTES PAGE ================= -->
+<div class="auth-view" id="view-notes">
+  <div class="container py-5">
+    <a href="#login" class="small fw-semibold text-decoration-none d-inline-flex align-items-center gap-1"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M19 12H5M5 12l6-6M5 12l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to the app</a>
+    <h1 class="fw-semibold mt-3">Design rationale</h1>
+    <p class="text-muted mt-2" style="max-width:70ch;">How this login &amp; registration flow applies Jakob Nielsen's 10 usability heuristics and Shneiderman's Eight Golden Rules of Interface Design. Several principles reinforce each other by design — that overlap is intentional, not duplication.</p>
+
+    <div class="section-label mt-4 mb-2">Nielsen's 10 usability heuristics</div>
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">1</span><h3 class="h6 fw-semibold mt-2">Visibility of system status</h3><p class="small text-muted mb-0">Buttons switch to a spinner + "Signing in…" / "Creating your account…" on submit, so you know something is happening.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">2</span><h3 class="h6 fw-semibold mt-2">Match between system &amp; the real world</h3><p class="small text-muted mb-0">Plain field labels ("Full name", "Course"), familiar icons (envelope, lock, eye), and real course names instead of codes or jargon.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">3</span><h3 class="h6 fw-semibold mt-2">User control &amp; freedom</h3><p class="small text-muted mb-0">Switching between Login and Register never discards what you've typed in either form. The Forgot Password and Help modals close with the ✕, the backdrop, or Esc — nothing traps you.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">4</span><h3 class="h6 fw-semibold mt-2">Consistency &amp; standards</h3><p class="small text-muted mb-0">One Bootstrap button style for primary actions, the same show/hide-password control on every password field, and standard patterns (checkbox, toggle chips) throughout.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">5</span><h3 class="h6 fw-semibold mt-2">Error prevention</h3><p class="small text-muted mb-0">Validation runs live as you type, not only on submit. Confirm-password catches typos, course selection is a tap instead of free text, and the submit button is disabled mid-request to block double-submits.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">6</span><h3 class="h6 fw-semibold mt-2">Recognition rather than recall</h3><p class="small text-muted mb-0">"Remember me" pre-fills your username next time. Password requirements sit next to the field instead of hidden in a tooltip.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">7</span><h3 class="h6 fw-semibold mt-2">Flexibility &amp; efficiency of use</h3><p class="small text-muted mb-0">You can jump straight to a view with a direct link (#login, #register, #notes) or bookmark it. Enter submits either form from any field.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">8</span><h3 class="h6 fw-semibold mt-2">Aesthetic &amp; minimalist design</h3><p class="small text-muted mb-0">Each screen shows only what's needed for that step; secondary content like password rules sits close to where it's needed instead of crowding the form.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">9</span><h3 class="h6 fw-semibold mt-2">Recognise, diagnose &amp; recover from errors</h3><p class="small text-muted mb-0">Every validation message says what's wrong and how to fix it in plain language, sits right under its field, appears the moment you type something invalid, and clears itself once it's valid.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">10</span><h3 class="h6 fw-semibold mt-2">Help &amp; documentation</h3><p class="small text-muted mb-0">A persistent "?" button opens a help panel (FAQ accordion) with answers to common questions, without leaving the page.</p></div></div></div>
+    </div>
+
+    <div class="section-label mt-5 mb-2">Shneiderman's eight golden rules</div>
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">1</span><h3 class="h6 fw-semibold mt-2">Strive for consistency</h3><p class="small text-muted mb-0">Shared type scale, spacing, color and components (all from Bootstrap 5) across the login and registration screens.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">2</span><h3 class="h6 fw-semibold mt-2">Seek universal usability</h3><p class="small text-muted mb-0">Responsive grid down to phone widths, semantic HTML with real &lt;label&gt;s, visible keyboard focus states, and large tap targets.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">3</span><h3 class="h6 fw-semibold mt-2">Offer informative feedback</h3><p class="small text-muted mb-0">Light actions (picking a course) get a subtle visual change; heavy actions (submitting a form) get a toast or alert confirming exactly what happened.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">4</span><h3 class="h6 fw-semibold mt-2">Design dialogs to yield closure</h3><p class="small text-muted mb-0">Registration ends with an explicit "Account created" banner and a "Continue to login" button, and login ends on a welcome panel confirming what you're enrolled in.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">5</span><h3 class="h6 fw-semibold mt-2">Prevent errors</h3><p class="small text-muted mb-0">Inputs are validated the moment you type, not only on submit, and the submit button only activates once the form can realistically succeed.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">6</span><h3 class="h6 fw-semibold mt-2">Permit easy reversal of actions</h3><p class="small text-muted mb-0">You can re-open "forgot password", close it without sending anything, untoggle a course chip, or sign out with one click.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">7</span><h3 class="h6 fw-semibold mt-2">Keep users in control</h3><p class="small text-muted mb-0">Nothing navigates or submits on its own — every transition is a direct response to a click or key press, never a timer forcing the pace.</p></div></div></div>
+      <div class="col"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="note-number mb-2 d-inline-flex">8</span><h3 class="h6 fw-semibold mt-2">Reduce short-term memory load</h3><p class="small text-muted mb-0">The password checklist turns green as you satisfy each rule; "remember me" removes the need to retype a username; selected courses stay visible as chips.</p></div></div></div>
+    </div>
+
+    <div class="alert alert-warning mt-4" role="note">
+      <strong>Scope note:</strong> this is a front-end prototype built for Iqra University's course platform. Accounts are validated and stored in the browser (localStorage) purely to demonstrate the flows above — a real deployment would authenticate and hash passwords on a server, and would never evaluate credentials on the client.
+    </div>
+  </div>
+</div>
+
+<!-- ================= TOASTS ================= -->
+<div class="toast-container position-fixed top-0 end-0 p-3" id="toastRegion" style="z-index:1080;"></div>
+
+<!-- ================= FORGOT PASSWORD MODAL ================= -->
+<div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="forgotModalLabel">Reset your password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="small text-muted">Enter the email on your account. We'll explain what would happen next in a real deployment of this flow.</p>
+        <div class="mb-2">
+          <label for="forgot-email" class="form-label fw-semibold">Email address</label>
+          <input type="email" class="form-control" id="forgot-email" placeholder="you@example.com">
+          <div class="invalid-feedback d-none" id="forgot-email-error"></div>
+        </div>
+        <div class="alert alert-success d-none mt-2" id="forgotSuccess" role="status">
+          If an account exists for that address, reset instructions would be sent there.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary w-100" id="forgotSubmit">Send reset instructions</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HELP MODAL ================= -->
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="helpModalLabel">Help &amp; documentation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="accordion" id="helpAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">What are the password requirements?</button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#helpAccordion">
+              <div class="accordion-body small text-muted">At least 8 characters, with a mix of uppercase and lowercase letters and at least one number. The checklist under the password field turns green as each rule is met.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">I forgot my username</button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+              <div class="accordion-body small text-muted">You can log in with either your username or the email you registered with — use "Forgot password?" if you also need to reset your password.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Can I change my course after registering?</button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+              <div class="accordion-body small text-muted">Course selection just determines what you see first after logging in. This prototype doesn't include an account-settings screen to change it, but a full build would add one.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Who do I contact for support?</button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#helpAccordion">
+              <div class="accordion-body small text-muted">In a production version of this portal this would link to the university's support inbox or live chat. This build is a front-end prototype, so there's no support desk behind it.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
